@@ -1,16 +1,22 @@
 <template>
   <div class="departamentos">
     <h1>{{ msg }}</h1>
+    <mapa />
   </div>
 </template>
 
 <script>
+import Mapa from './Mapa'
+
 export default {
   name: 'Departamentos',
   data() {
     return {
       msg: 'Departamentos'
     }
+  },
+  components: {
+    Mapa
   }
 }
 </script>
