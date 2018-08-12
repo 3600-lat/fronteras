@@ -5,7 +5,7 @@ describe('Departamentos.vue', () => {
   it('should render correct contents', () => {
     const Constructor = Vue.extend(Departamentos)
     const vm = new Constructor().$mount()
-    expect(vm.$el.querySelector('.hello h1').textContent).toEqual(
+    expect(vm.$el.querySelector('.departamentos h1').textContent).toEqual(
       'Departamentos'
     )
   })
