@@ -5,11 +5,28 @@
 </template>
 
 <script>
+import * as d3 from 'd3'
+
 export default {
   name: 'Mapa',
   data() {
     return {
-      contenido: 'Un círculo'
+      contenido: 'Un círculo',
+      geojson2:
+        'https://raw.githubusercontent.com/severo/data/master/20180331/departamentos_simplified_002.geojson'
+    }
+  },
+  mounted() {
+    this.initialize()
+  },
+  methods: {
+    initialize() {
+      const projection = d3.geoMercator()
+      const path = d3.geoPath().projection(projection)
+      const svg = d3.select('svg.mapa')
+      d3.json(this.geojson2).then(function(data) {
+        svg.append('path').attr('d', path(data))
+      })
     }
   }
 }
